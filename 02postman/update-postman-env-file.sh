@@ -11,7 +11,7 @@ api_gateway_url=`aws cloudformation describe-stacks \
 
 echo "API Gateway URL: https://skntgzvovc.execute-api.eu-west-1.amazonaws.com/prod" 
 
-jq -e --arg apigwurl https://skntgzvovc-vpce-0b27ccb25401f01a2.execute-api.eu-west-1.amazonaws.com/prod '(.values[] | select(.key=="apigw-root") | .value) = $apigwurl' \
+jq -e --arg apigwurl https://skntgzvovc.execute-api.eu-west-1.amazonaws.com/prod '(.values[] | select(.key=="apigw-root") | .value) = $apigwurl' \
   PetStoreAPIEnvironment.postman_environment.json > PetStoreAPIEnvironment.postman_environment.json.tmp \
   && cp PetStoreAPIEnvironment.postman_environment.json.tmp PetStoreAPIEnvironment.postman_environment.json \
   && rm PetStoreAPIEnvironment.postman_environment.json.tmp
